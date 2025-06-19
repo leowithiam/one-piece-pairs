@@ -1,0 +1,88 @@
+/* Imported Styles */
+@import url("https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* Global Styles */
+:root {
+  /* Font Variables */
+  --font-family: "Prompt", Arial, "sans-serif";
+
+  --delay: 200ms;
+  --rotate-0: rotateY(0deg);
+  --rotate-90: rotateY(90deg);
+  --transition: all ease-in 200ms;
+
+  --radius: 0.75rem;
+  --shadow: 1px 1px 13px #03030390;
+
+  --card-width: 120px;
+  --card-width-mobile: 20vw;
+  --card-enter: enter 600ms ease;
+}
+
+/* Universal Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+}
+
+main {
+  height: 100vh;
+  background-image: url("/public/images/bg-map-tiled.jpg");
+  background-size: 190px 190px;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Card Grid Styles */
+.grid {
+  display: grid;
+  gap: 1.25rem;
+  margin: 3rem auto;
+  grid-template-columns: repeat(4, auto);
+}
+
+/* Card Styles */
+.card {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  width: var(--card-width);
+  animation: var(--card-enter);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.card img {
+  width: 100%;
+}
+.card-face,
+.card-back {
+  background: var(--card);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+.card-face {
+  position: absolute;
+  transform: var(--rotate-90);
+}
+.card-back {
+  transform: var(--rotate-0);
+  transition-delay: var(--delay);
+}
+.selected .card-face {
+  transform: var(--rotate-0);
+  transition-delay: var(--delay);
+}
+.selected .card-back {
+  transform: var(--rotate-90);
+  transition-delay: 0s;
+}
