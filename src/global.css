@@ -6,6 +6,9 @@
   /* Font Variables */
   --font-family: "Prompt", Arial, "sans-serif";
 
+  --text-colour: #fff;
+  --bg-colour: rgba(0, 0, 0, 0.2);
+
   --delay: 200ms;
   --rotate-0: rotateY(0deg);
   --rotate-90: rotateY(90deg);
@@ -15,7 +18,7 @@
   --shadow: 1px 1px 13px #03030390;
 
   --card-width: 120px;
-  --card-width-mobile: 20vw;
+  --card-width-mobile: 16vw;
   --card-enter: enter 600ms ease;
 }
 
@@ -38,13 +41,42 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 2rem;
+}
+
+/* Header Styles */
+.header {
+  color: var(--text-colour);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.wins {
+  border-radius: 0.3125rem;
+  background-color: var(--bg-colour);
+  padding: 0.625rem 0.5625rem;
+  font-size: 1rem;
+}
+
+/* Button Styles */
+.button {
+  font-family: var(--font-family);
+  color: var(--text-colour);
+  background-color: var(--bg-colour);
+  border: 2px solid #fff;
+  padding: 0.625rem 0.5625rem;
+  border-radius: 0.3125rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 /* Card Grid Styles */
 .grid {
   display: grid;
   gap: 1.25rem;
-  margin: 3rem auto;
+  margin-top: 1.75rem;
   grid-template-columns: repeat(4, auto);
 }
 
@@ -85,4 +117,19 @@ main {
 .selected .card-back {
   transform: var(--rotate-90);
   transition-delay: 0s;
+}
+
+/* ========= Mobile ===================== */
+@media screen and (max-width: 720px) {
+  body {
+    align-items: center;
+  }
+
+  .grid {
+    margin: auto auto 3rem auto;
+  }
+
+  .card {
+    width: var(--card-width-mobile);
+  }
 }
