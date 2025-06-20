@@ -6,15 +6,16 @@
   /* Font Variables */
   --font-family: "Prompt", Arial, "sans-serif";
 
-  --text-colour: #fff;
-  --bg-colour: rgba(0, 0, 0, 0.2);
+  --colour-text: #fff;
+  --colour-bg: rgba(0, 0, 0, 0.2);
 
   --delay: 200ms;
   --rotate-0: rotateY(0deg);
   --rotate-90: rotateY(90deg);
   --transition: all ease-in 200ms;
 
-  --radius: 0.75rem;
+  --radius-card: 0.75rem;
+  --radius-text: 0.3rem;
   --shadow: 1px 1px 13px #03030390;
 
   --card-width: 120px;
@@ -31,30 +32,30 @@
 
 body {
   font-family: var(--font-family);
+  background-image: url("/public/images/bg-map-tiled.jpg");
+  background-size: 190px 190px;
+  color: var(--colour-text);
 }
 
 main {
-  height: 100vh;
-  background-image: url("/public/images/bg-map-tiled.jpg");
-  background-size: 190px 190px;
   padding: 2rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  width: 100%;
 }
 
 /* Header Styles */
 .header {
-  color: var(--text-colour);
   display: flex;
   align-items: center;
   gap: 2rem;
 }
 
 .wins {
-  border-radius: 0.3125rem;
-  background-color: var(--bg-colour);
+  border-radius: var(--radius-text);
+  background-color: var(--colour-bg);
   padding: 0.625rem 0.5625rem;
   font-size: 1rem;
 }
@@ -62,11 +63,11 @@ main {
 /* Button Styles */
 .button {
   font-family: var(--font-family);
-  color: var(--text-colour);
-  background-color: var(--bg-colour);
+  color: var(--colour-text);
+  background-color: var(--colour-bg);
   border: 2px solid #fff;
   padding: 0.625rem 0.5625rem;
-  border-radius: 0.3125rem;
+  border-radius: var(--radius-text);
   font-weight: 700;
   cursor: pointer;
   font-size: 1rem;
@@ -89,9 +90,14 @@ main {
   background: transparent;
   width: var(--card-width);
   animation: var(--card-enter);
-  border-radius: var(--radius);
+  border-radius: var(--radius-card);
   cursor: pointer;
+  transition: 0.2s transform ease;
 }
+.card:hover {
+  transform: scale(1.1, 1.1);
+}
+
 .card img {
   width: 100%;
 }
@@ -99,7 +105,7 @@ main {
 .card-back {
   background: var(--card);
   box-shadow: var(--shadow);
-  border-radius: var(--radius);
+  border-radius: var(--radius-card);
   transition: var(--transition);
 }
 .card-face {

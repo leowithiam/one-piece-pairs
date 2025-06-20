@@ -3,12 +3,18 @@ import Button from "./Button";
 
 const Header = ({ handleNewGame, wins }) => {
   useEffect(() => {
-    document.title = `${wins} wins`;
+    if (wins) {
+      document.title = `One Piece Pairs | ${wins} ${wins > 1 ? "Wins" : "Win"}`;
+    } else {
+      document.title = `One Piece Pairs`;
+    }
   }, [wins]);
 
   return (
     <header className="header">
-      <h4 className="wins">{wins} WINS</h4>
+      <h2 className="wins">
+        {wins} {wins === 1 ? "WIN" : "WINS"}
+      </h2>
       <Button onClick={handleNewGame}>NEW GAME</Button>
     </header>
   );

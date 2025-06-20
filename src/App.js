@@ -76,7 +76,7 @@ function App() {
 
   return (
     <main>
-      <img src="/images/one-piece-pairs-logo.png" alt="" width="220px" />
+      <img src="/images/one-piece-pairs-logo.png" alt="" width="270px" />
       <Header handleNewGame={handleNewGame} wins={wins} />
       <div className="grid">
         {cards.map((card) => {
